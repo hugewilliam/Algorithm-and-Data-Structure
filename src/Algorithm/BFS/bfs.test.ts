@@ -1,5 +1,5 @@
-import { walkBFS } from './bfs'
 import { Tree } from '../../Structure/index'
+import { walkBFS } from './bfs'
 
 const root = new Tree<number>(1)
 root.left = new Tree(2)
@@ -20,7 +20,7 @@ root.left.right = new Tree(5)
 
 // 封装个方便测试的方法
 const printWalkBFS = (root: Tree<number>) => {
-  let res: number[] = []
+  const res: number[] = []
   walkBFS(root, (item) => {
     res.push(item.value)
   })

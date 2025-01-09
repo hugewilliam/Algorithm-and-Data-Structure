@@ -77,8 +77,8 @@ export class LinkList<T> {
     if (this.isEmpty) return false
     const dumpNode = new LinkNode(null)
     dumpNode.next = this.head
-    let preNode,
-      currentNode = dumpNode
+    let preNode: LinkNode<T>
+    let currentNode = dumpNode
 
     while (currentNode.next) {
       preNode = currentNode

@@ -23,9 +23,8 @@ export class Queue<T> implements IQueue<T> {
   dequeue(): T | null {
     if (this.queue.length > 0) {
       return this.queue.shift()
-    } else {
-      return null
     }
+    return null
   }
 
   clear(): void {

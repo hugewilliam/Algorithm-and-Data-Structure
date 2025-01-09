@@ -1,4 +1,4 @@
-type Node = DoubleLinkNode<T> | null
+type Node<T> = DoubleLinkNode<T> | null
 export class DoubleLinkNode<T> {
   value: T
   prev: Node

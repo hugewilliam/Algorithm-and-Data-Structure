@@ -1,10 +1,10 @@
-import {
-  StaticArray,
-  OverflowError,
-  UnderflowError,
-  InvalidIndex,
-} from './index'
 import { generateRandom } from '../../utils'
+import {
+  InvalidIndex,
+  OverflowError,
+  StaticArray,
+  UnderflowError,
+} from './index'
 
 const arr = new StaticArray<number>(100)
 const test_arr = Array.from({ length: 100 }, (_, idx) => idx)
@@ -28,10 +28,15 @@ test('static array get index in error case', () => {
 })
 
 test('push 100 items in arr', () => {
-  test_arr.forEach((item) => arr.push(item))
+  for (const item of test_arr) {
+    arr.push(item)
+  }
 
   expect(arr.data).toEqual(
-    test_arr.reduce((total, item) => ({ ...total, [item]: item }), {}),
+    test_arr.reduce((total, item) => {
+      total[item] = item
+      return total
+    }, {}),
   )
 })
 
@@ -84,14 +89,14 @@ test('static array test insert method', () => {
 })
 
 test('static array remove the item that is 1', () => {
-  let res_bool = arr.remove(1)
+  const res_bool = arr.remove(1)
 
   expect(res_bool).toBe(true)
   expect(arr.data).toEqual({ 0: 0, 1: 2 })
 })
 
 test('static array remove the not exist item', () => {
-  let res_bool = arr.remove(1000)
+  const res_bool = arr.remove(1000)
 
   expect(res_bool).toBe(false)
 })

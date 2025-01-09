@@ -1,6 +1,3 @@
-
 export class Heap {
-  constructor(compare, array) {
-
-  }
+  // constructor(compare, array) {}
 }

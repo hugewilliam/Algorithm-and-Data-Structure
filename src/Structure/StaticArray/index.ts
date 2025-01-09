@@ -10,19 +10,19 @@ abstract class IStaticArray<T> {
   /** stored data */
   abstract data: { [key in string]: T }
   /** get a item in array */
-  abstract get: (index: number) => T | void | never
+  abstract get: (index: number) => T | undefined | never
   /** push a item on tail of array, O(1) time complex */
-  abstract push: (item: T) => void | never
+  abstract push: (item: T) => undefined | never
   /** pop a item on tail of array O(1) time complex */
   abstract pop: () => T | never
   /** insert a item in index position of array, O(n) time complex */
-  abstract insert: (index: number, item: T) => void | never
+  abstract insert: (index: number, item: T) => undefined | never
   /** remove a item in array, O(n) time complex */
   abstract remove: (item: T) => boolean
   /** the iterator method of array */
   abstract iterator: (cb: Iterator<T>) => void
 
-  constructor(capacity: number) {}
+  // constructor(capacity: number) {}
 }
 
 export class StaticArray<T> implements IStaticArray<T> {
@@ -41,20 +41,20 @@ export class StaticArray<T> implements IStaticArray<T> {
   }
 
   private get array(): T[] {
-    return Array.from<void[], T>(
+    return Array.from<undefined[], T>(
       Array(this.length),
       (_, index) => this.data[index],
       this,
     )
   }
 
-  get(index: number): T | void | never {
+  get(index: number): T | undefined | never {
     if (index < 0 || index >= this.capacity) throw InvalidIndex
 
     return this.data[index]
   }
 
-  push(item: T): void | never {
+  push(item: T): undefined | never {
     if (this.checkMaxSize()) throw OverflowError
     this.data[this.length] = item
     this.length++
@@ -69,7 +69,7 @@ export class StaticArray<T> implements IStaticArray<T> {
     return last
   }
 
-  insert(index: number, item: T): void | never {
+  insert(index: number, item: T): undefined | never {
     if (index > this.length - 1 || index < 0) throw InvalidIndex
     if (this.checkMaxSize()) throw OverflowError
 

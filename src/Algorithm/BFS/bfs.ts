@@ -1,9 +1,9 @@
 import { Queue } from '../../Structure'
-import { TreeNode } from '../../Structure'
+import type { TreeNode } from '../../Structure'
 
 // 广度优先遍历树的方法
 type Iterator<T> = (item: TreeNode<T>) => void
-export function walkBFS<T = any>(root: TreeNode<T>, iterator: Iterator<T>) {
+export function walkBFS<T = unknown>(root: TreeNode<T>, iterator: Iterator<T>) {
   const queue = new Queue<TreeNode<T>>()
   queue.enqueue(root)
 

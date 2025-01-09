@@ -1,5 +1,5 @@
-import { decimal2Binary } from "."
-import { generateRandomGroup } from "../../../utils"
+import { decimal2Binary } from '.'
+import { generateRandomGroup } from '../../../utils'
 
 describe('Decimal2binary', () => {
   it('0 -> 0', () => {

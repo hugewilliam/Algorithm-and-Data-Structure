@@ -1,7 +1,7 @@
-export interface IStack<T = any> {
+export interface IStack<T = unknown> {
   isEmpty: boolean
   push: (value: T) => void
-  pop: () => T | void
+  pop: () => T | undefined
   clear: () => void
 }
 

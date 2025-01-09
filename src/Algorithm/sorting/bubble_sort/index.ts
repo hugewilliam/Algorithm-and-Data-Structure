@@ -1,5 +1,5 @@
 export const bubbleSort = (arr) => {
-  let isSwapped
+  let isSwapped = false
 
   for (let i = 0; i < arr.length - 1; i++) {
     isSwapped = false

@@ -5,7 +5,8 @@
 
 import { Stack } from '../../../Structure'
 
-export const decimal2Binary = (num: number): string => {
+export const decimal2Binary = (_num: number): string => {
+  let num = _num
   if (num === 0) return '0'
   const tmpStack = new Stack<number>()
 
