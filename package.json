@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "test": "jest",
+    "dev": "jest --watch",
     "structure": "jest ./src/Structure",
     "algorithm": "jest ./src/Algorithm",
     "practices": "jest ./src/Practices",

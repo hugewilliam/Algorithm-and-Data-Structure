@@ -2,7 +2,7 @@ import { LinkList, LinkNode } from '.'
 
 const linkList = new LinkList<number>()
 
-describe('test LinkList push', () => {
+describe('test single link list', () => {
   test('push a element 0', () => {
     const node = linkList.push(0)
     expect(node).toEqual(new LinkNode(0))
@@ -41,7 +41,7 @@ describe('test LinkList push', () => {
     expect(linkList.valueOf()).toEqual([1, 2, 3, 0, 4])
   })
 
-  test('test clear all elements', () => {
+  test('clear all elements', () => {
     linkList.clear()
     expect(linkList.length).toBe(0)
     expect(linkList.valueOf()).toEqual([])
